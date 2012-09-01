@@ -1,0 +1,33 @@
+{
+  "name": "Google Image Search Downloader",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "An extension to scrape full-size images from Google search results.",
+  "permissions": [
+    "http://*/",
+    "https://*/",
+    "experimental"
+  ],
+  "page_action": {
+    "default_icon": "icon.png", // optional
+    "default_title": "Do action"    // optional; shown in tooltip
+  },
+  "content_scripts" : [
+    {
+      "matches" : [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js" : [
+//        "jquery-1.7.2.min.js",
+//        "jquery.ba-dotimeout.min.js",
+        "contentscript.js"
+      ],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "background" : {
+    "scripts": ["background.js"]
+  }
+}
